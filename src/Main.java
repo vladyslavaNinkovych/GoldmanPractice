@@ -32,17 +32,17 @@ public class Main extends JPanel {
 
     void move(int direction) throws Exception {
         if ((direction == 1 & y == 0)
-                || (direction == 2 & y == 10)
+                || (direction == 2 & y == 11)
                 || (direction == 3 & x == 0)
                 || (direction == 4 & x == 10)) {
             System.out.println("Will not move");
             return;
         }
-        if ((direction == 1 & data[y - 1][x].equals("B"))
-                || (direction == 2 & data[y + 1][x].equals("B"))
-                || (direction == 3 & data[y][x - 1].equals("B"))
-                || (direction == 4 & data[y][x + 1].equals("B"))) {
-            System.out.println("Will not move.");
+        if ((direction == 1 & !data[y - 1][x].contains("G"))
+                || (direction == 2 & !data[y + 1][x].contains("G"))
+                || (direction == 3 & !data[y][x - 1].contains("G"))
+                || (direction == 4 & !data[y][x + 1].contains("G"))) {
+            System.out.println("Will not move. Brick or Monster is on the way");
             return;
         }
             switch (direction) {
